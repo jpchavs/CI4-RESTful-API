@@ -1,6 +1,3 @@
 # CI4-RESTful-API
-RESTful API sample on codeigniter
+Simple Inventory CRUD API using Codeigniter 4.1
 
-## Sub Header
-
-TEST
