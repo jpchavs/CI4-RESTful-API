@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Client extends Model
+class ClientModel extends Model
 {
     protected $DBGroup              = 'default';
     protected $table                = 'client';
@@ -35,19 +35,6 @@ class Client extends Model
         }
 
         return $data;
-    }
-
-    public function findUserByEmailAddress(string $emailAddress)
-    {
-        $user = $this
-            ->asArray()
-            ->where(['email' => $emailAddress])
-            ->first();
-
-        if (!$user) 
-            throw new Exception('User does not exist for specified email address');
-
-        return $user;
     }
 
     public function findClientById(string $id)

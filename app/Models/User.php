@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Exception;
 
 class User extends Model
 {
     protected $DBGroup              = 'default';
     protected $table                = 'user';
     protected $primaryKey           = 'id';
-    protected $allowedFields        = ['username', 'password', 'email', 'update_at'];
+    protected $allowedFields        = ['username', 'password', 'email', 'name', 'update_at'];
     
     protected $updateField          = 'updated_at';
 
@@ -31,7 +32,7 @@ class User extends Model
     private function getHashedPassword(array $data)
     {
         if(isset($data['data']['password'])) {
-            $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_BCRYPT);
+            $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
         }
 
         return $data;
